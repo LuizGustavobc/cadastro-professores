@@ -1,0 +1,19 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Professor {
+  id         String @id @default(uuid()) @db.Uuid
+  nome       String
+  email      String
+  disciplina String
+  telefone   String
+
+  @@map("professores")
+}
